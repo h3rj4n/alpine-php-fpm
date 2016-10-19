@@ -32,4 +32,5 @@ WORKDIR /app
 
 EXPOSE 9000
 
-CMD ["php-fpm"]
+# Entry point
+ENTRYPOINT ["/usr/bin/php-fpm"]
