@@ -23,14 +23,17 @@ RUN apk --no-cache --update add \
         php-iconv \
         php-phar \
         php-openssl \
-    && rm -rf /var/cache/apk/*
+        php-zlib \
+        php-zip \
+        php-xmlreader \
+        && rm -rf /var/cache/apk/*
 
-COPY php.ini /etc/php5/conf.d/50-setting.ini
-COPY php-fpm.conf /etc/php5/php-fpm.conf
+COPY php.ini /etc/php/conf.d/50-setting.ini
+COPY php-fpm.conf /etc/php/php-fpm.conf
 
 WORKDIR /app
 
 EXPOSE 9000
 
 # Entry point
-ENTRYPOINT ["/usr/bin/php-fpm"]
+ENTRYPOINT ["/usr/bin/php-fpm", "-F"]
