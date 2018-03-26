@@ -1,5 +1,5 @@
-FROM resnullius/alpine-armv7l:latest
-
+#FROM arm32v6/alpine
+FROM arm64v8/alpine:latest
 MAINTAINER Herjan van Eijk <docker@f28.nl>
 
 # Make sure we can access it trough bash.
@@ -18,6 +18,8 @@ RUN apk --no-cache --update add \
         php-opcache \
         php-pdo \
         php-pdo_mysql \
+        php-mysqli \
+        php-gettext \
         php-posix \
         php-xml \
         php-iconv \
