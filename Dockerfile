@@ -29,6 +29,9 @@ RUN apk --no-cache --update add \
         php7-zip \
         php7-xmlreader \
         php7-redis \
+        php7-xmlwriter \
+        php7-simplexml \
+        php7-mbstring \
         && rm -rf /var/cache/apk/*
 
 COPY php.ini /etc/php7/conf.d/50-setting.ini
