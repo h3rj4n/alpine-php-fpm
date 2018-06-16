@@ -28,16 +28,8 @@ RUN apk --no-cache --update add \
         php7-zlib \
         php7-zip \
         php7-xmlreader \
+        php7-redis \
         && rm -rf /var/cache/apk/*
-
-RUN apk --update --no-cache add \
-        php7-dev autoconf g++ make curl && \
-        cd /tmp && curl -LO https://github.com/phpredis/phpredis/archive/4.0.2.tar.gz && \
-        tar -xvzf 4.0.2.tar.gz && cd phpredis-4.0.2 && \
-        phpize && \
-        ./configure && \
-        make && make install && \
-        echo "extension=redis.so" > /etc/php7/conf.d/redis.ini
 
 COPY php.ini /etc/php7/conf.d/50-setting.ini
 COPY php-fpm.conf /etc/php7/php-fpm.conf
@@ -47,4 +39,4 @@ WORKDIR /app
 EXPOSE 9000
 
 # Entry point
-ENTRYPOINT ["/usr/bin/php-fpm7", "-F"]
+ENTRYPOINT ["php-fpm7", "-F"]
