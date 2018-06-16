@@ -6,34 +6,34 @@ MAINTAINER Herjan van Eijk <docker@f28.nl>
 RUN apk --no-cache add bash
 
 RUN apk --no-cache --update add \
-        php \
-        php-dom \
-        php-ctype \
-        php-curl \
-        php-fpm \
-        php-gd \
-        php-intl \
-        php-mcrypt \
-        php-json \
-        php-opcache \
-        php-pdo \
-        php-pdo_mysql \
-        php-mysqli \
-        php-gettext \
-        php-posix \
-        php-xml \
-        php-iconv \
-        php-phar \
-        php-openssl \
-        php-zlib \
-        php-zip \
-        php-xmlreader \
+        php7 \
+        php7-dom \
+        php7-ctype \
+        php7-curl \
+        php7-fpm \
+        php7-gd \
+        php7-intl \
+        php7-mcrypt \
+        php7-json \
+        php7-opcache \
+        php7-pdo \
+        php7-pdo_mysql \
+        php7-mysqli \
+        php7-gettext \
+        php7-posix \
+        php7-xml \
+        php7-iconv \
+        php7-phar \
+        php7-openssl \
+        php7-zlib \
+        php7-zip \
+        php7-xmlreader \
         && rm -rf /var/cache/apk/*
 
 RUN apk --update --no-cache add \
-        php-dev autoconf g++ make && \
-        cd /tmp && wget https://github.com/phpredis/phpredis/archive/3.1.2.tar.gz && \
-        tar -xvzf 3.1.2.tar.gz && cd phpredis-3.1.2 && \
+        php7-dev autoconf g++ make curl && \
+        cd /tmp && curl -LO https://github.com/phpredis/phpredis/archive/4.0.2.tar.gz && \
+        tar -xvzf 4.0.2.tar.gz && cd phpredis-4.0.2 && \
         phpize && \
         ./configure && \
         make && make install && \
