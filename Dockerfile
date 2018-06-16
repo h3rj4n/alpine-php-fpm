@@ -47,4 +47,4 @@ WORKDIR /app
 EXPOSE 9000
 
 # Entry point
-ENTRYPOINT ["/usr/bin/php-fpm", "-F"]
+ENTRYPOINT ["/usr/bin/php-fpm7", "-F"]
