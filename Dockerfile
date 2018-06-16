@@ -37,10 +37,10 @@ RUN apk --update --no-cache add \
         phpize && \
         ./configure && \
         make && make install && \
-        echo "extension=redis.so" > /etc/php/conf.d/redis.ini
+        echo "extension=redis.so" > /etc/php7/conf.d/redis.ini
 
-COPY php.ini /etc/php/conf.d/50-setting.ini
-COPY php-fpm.conf /etc/php/php-fpm.conf
+COPY php.ini /etc/php7/conf.d/50-setting.ini
+COPY php-fpm.conf /etc/php7/php-fpm.conf
 
 WORKDIR /app
 
